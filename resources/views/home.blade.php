@@ -14,7 +14,7 @@
                         </div>
                     @endif                 
                
-                     <a href="{{ url('/text') }}">Text</a>
+                     <a href="{{ url('/view') }}">Text</a>
                      <hr>
 
                      <a href="{{ url('/home') }}">Audio</a>
@@ -27,5 +27,9 @@
             </div>
         </div>
     </div>
+       
 </div>
+
+        @include('includes.footer')
+      
 @endsection

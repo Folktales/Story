@@ -15,7 +15,18 @@
                     @endif                                
 
 
-                   <p> Welcome to text </p>
+                   <p> Write your Story below </p>
+                   <form action="{{ route('post.create') }}" method="post">
+
+                    
+                   
+                    <textarea name="body" style="width: 100%; height: 300px;" class="textarea">  </textarea> </br>
+
+                    <button type="submit" class="btn"> Post Story</button>
+
+                   <input type="hidden" value="{{ Session::token() }}" name="_token">
+
+                   </form>
 
 
                 </div>
@@ -23,4 +34,7 @@
         </div>
     </div>
 </div>
+
+ @include('includes.footer')          
+
 @endsection

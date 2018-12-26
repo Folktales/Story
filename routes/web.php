@@ -49,6 +49,14 @@ Route::get('/', function () {
 });
 
 //for text folktales using text function
-Route::get('text','HomeController@text');
+Route::get('text','HomeController@text'); 
 
+Route::post('/createpost', [
+	'uses' => 'PostController@postCreatePost',
+	'as' =>'post.create']);
 
+Route::get('/uploadfile','UploadfileController@index');
+
+Route::post('/uploadfile','UploadfileController@upload');
+
+Route::get('view','ViewController@index');

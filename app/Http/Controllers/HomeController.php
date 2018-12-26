@@ -31,5 +31,10 @@ class HomeController extends Controller
         return view('text');
     }
 
+    public function view()
+    {
+        return view('view');
+    }
+
     
 }

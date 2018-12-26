@@ -45,5 +45,11 @@ class User extends Authenticatable
         return strtoupper($value); 
     }
 
+   //to post
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    } 
+   
    
 }

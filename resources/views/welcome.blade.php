@@ -61,9 +61,20 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #bgimg{
+                background-image: url(images/background.jpg);
+                background-repeat: no-repeat;
+                color: black;
+                text-decoration-style: bold;  
+                text-shadow: 100;                                      
+            }
+
+            
+
         </style>
     </head>
-    <body>
+    <body id="bgimg">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -77,15 +88,19 @@
                         @endif
                     @endauth
                 </div>
-            @endif
+            @endif           
 
             <div class="content">
                 <div class="title m-b-md">
                     Welcome to Bhutanese Folktales
-                </div>
-
-                
+                </div>                
             </div>
-        </div>
+
+        </div>  
+
+        <footer class="row">
+        @include('includes.footer')
+        </footer>     
+
     </body>
 </html>
