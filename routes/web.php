@@ -55,8 +55,18 @@ Route::post('/createpost', [
 	'uses' => 'PostController@postCreatePost',
 	'as' =>'post.create']);
 
+//to upload images
 Route::get('/uploadfile','UploadfileController@index');
 
 Route::post('/uploadfile','UploadfileController@upload');
 
+//to view the inserted datas from database
 Route::get('view','ViewController@index');
+
+//to post the audio in database
+Route::get('/audio','AudioController@index');
+Route::post('/audio','AudioController@store')->name('audio');
+
+//to post the video in the database
+Route::get('/video','VideoController@index');
+Route::post('/video','VideoController@store');
