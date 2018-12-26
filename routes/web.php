@@ -50,5 +50,13 @@ Route::get('/', function () {
 
 //for text folktales using text function
 Route::get('text','HomeController@text');
+Route::get('/text1', 'HomeController@index')->name('text');
+
+Route::post('file/upload', 'FileController@store')->name('file.upload');
+Route::post('upload', 'FileController@upload')->name('upload');
+
+Route::get('imageUpload', ['as'=>'imageUpload', 'uses'=>'ImageController@index']);
+Route::put('imageUpload', ['as'=>'imageUploadFile', 'uses'=>'ImageController@uploadFiles']);
+
 
 
