@@ -49,7 +49,20 @@ Route::get('/', function () {
 });
 
 //for text folktales using text function
+<<<<<<< HEAD
 Route::get('text','HomeController@text'); 
+=======
+Route::get('text','HomeController@text');
+Route::get('/text1', 'HomeController@index')->name('text');
+
+Route::post('file/upload', 'FileController@store')->name('file.upload');
+Route::post('upload', 'FileController@upload')->name('upload');
+
+Route::get('imageUpload', ['as'=>'imageUpload', 'uses'=>'ImageController@index']);
+Route::put('imageUpload', ['as'=>'imageUploadFile', 'uses'=>'ImageController@uploadFiles']);
+
+
+>>>>>>> cfdd85e5240ab9dff243b546adbd886ea7bb446d
 
 Route::post('/createpost', [
 	'uses' => 'PostController@postCreatePost',

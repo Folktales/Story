@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+<<<<<<< HEAD
 <style type="text/css">
     .btn{
         margin-left: 40%;
@@ -7,10 +8,13 @@
     }
 </style>
 
+=======
+>>>>>>> cfdd85e5240ab9dff243b546adbd886ea7bb446d
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+<<<<<<< HEAD
             <div class="card">
                 <div class="card-header">Audio for Bhutanese Folktales</div>
 
@@ -30,6 +34,19 @@
                         </div>    
                       </div>
 
+=======
+            @if(session()->get('message'))
+            <div class="alert alert-success">
+              {{ session()->get('message') }}
+            </div>
+            @endif
+            <div class="card">
+                <div class="card-header">Audio folktales Only</div>
+                <div class="card-body">
+                <form method="POST" action="{{ route('audio.upload') }}" aria-label="{{ __('Upload') }}">
+                      @csrf
+                      
+>>>>>>> cfdd85e5240ab9dff243b546adbd886ea7bb446d
                         <div class="form-group row">
                             <label for="title" class="col-sm-4 col-form-label text-md-right">{{ __('Title') }}</label>
                             <div class="col-md-6">
@@ -39,6 +56,7 @@
                                         <strong>{{ $errors->first('title') }}</strong>
                                     </span>
                                 @endif
+<<<<<<< HEAD
                             </div>
                         </div>
                         
@@ -62,6 +80,16 @@
                             </div>                            
                         </div>
 
+=======
+
+                                  <div class="form-group row">
+                            <label for="audio" class="col-md-4 col-form-label text-md-right">{{ __('Audio') }}</label>
+                            <div class="col-md-6">
+                               <input type="file" name="audio">
+                               
+                            </div>
+                             </div>
+>>>>>>> cfdd85e5240ab9dff243b546adbd886ea7bb446d
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -71,6 +99,7 @@
                         </div>
                     </form>
 
+<<<<<<< HEAD
 
                    <!-- <form action="/audio" method="post"   enctype="multipart/form-data">
                         
@@ -100,12 +129,18 @@
 
                    </form> -->
 
+=======
+>>>>>>> cfdd85e5240ab9dff243b546adbd886ea7bb446d
                 </div>
             </div>
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
  @include('includes.footer')          
 
 @endsection
+=======
+@endsection
+>>>>>>> cfdd85e5240ab9dff243b546adbd886ea7bb446d

@@ -29,6 +29,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+     public function files()
+    {
+      return $this->hasMany(File::class);
+    }
+
+    public function uploads()
+    {
+   return $this->hasMany(Upload::class);
+    }
+    
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = ucfirst($value);
