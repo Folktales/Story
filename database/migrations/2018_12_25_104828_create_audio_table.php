@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAudiosTable extends Migration
+class CreateAudioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateAudiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('audios', function (Blueprint $table) {
+        Schema::create('audio', function (Blueprint $table) {
             $table->increments('id');
+             $table->integer('user_id')->unsigned()->index();
             $table->string('title');
             $table->string('author');
             $table->string('audio');
@@ -29,6 +30,6 @@ class CreateAudiosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('audios');
+        Schema::dropIfExists('audio');
     }
 }

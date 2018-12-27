@@ -20,13 +20,14 @@ class AudioController extends Controller
             
               'title' => 'required:max:25',
               'author' => 'required'
+              
 
            ]);
 
-           auth()->user()->create([
+           auth()->user()->audios()->create([
                'title' => $request->get('title'),
                'author' => $request->get('author'),
-               'audio' => $request->get('audio'),
+               'audio' => $request->get('audio')
              
            ]);
 

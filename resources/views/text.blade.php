@@ -31,36 +31,22 @@
                                 @endif
                             </div>
                         </div>
+
+
                         <div class="form-group row">
                             <label for="overview" class="col-sm-4 col-form-label text-md-right">{{ __('Overview') }}</label>
                             <div class="col-md-6">
-                                <textarea id="overview" cols="10" rows="10" class="form-control{{ $errors->has('overview') ? ' is-invalid' : '' }}" name="overview" value="{{ old('overview') }}" required autofocus></textarea>
+                                <textarea id="overview" cols="5" rows="5" class="form-control{{ $errors->has('overview') ? ' is-invalid' : '' }}" name="overview" value="{{ old('overview') }}" required autofocus></textarea>
                                 @if ($errors->has('overview'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('overview') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>
-<<<<<<< HEAD
-                    @endif                                
+                        </div>                 
 
 
-                   <p> Write your Story below </p>
-                   <form action="{{ route('post.create') }}" method="post">
-
-                          
-                    <textarea name="body" style="width: 100%; height: 300px;" class="textarea">  </textarea> </br>
-
-                    <button type="submit" class="btn"> Post Story</button>
-
-                   <input type="hidden" value="{{ Session::token() }}" name="_token">
-
-                   </form>
-=======
->>>>>>> cfdd85e5240ab9dff243b546adbd886ea7bb446d
-
-                         <div class="form-group row">
+                        <div class="form-group row">
                             <label for="story" class="col-md-4 col-form-label text-md-right">{{ __('Detail story') }}</label>
                             <div class="col-md-6">
                                <textarea id="story" cols="10" rows="10" class="form-control{{ $errors->has('story') ? ' is-invalid' : '' }}" name="story" value="{{ old('story') }}" required autofocus></textarea>
@@ -73,7 +59,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="author" class="col-md-4 col-form-label text-md-right">{{ __('author') }}</label>
+                            <label for="author" class="col-md-4 col-form-label text-md-right">{{ __('Author') }}</label>
                             <div class="col-md-6">
                                 <input id="author" type="text" class="form-control{{ $errors->has('author') ? ' is-invalid' : '' }}" name="author" required>
                                 @if ($errors->has('author'))

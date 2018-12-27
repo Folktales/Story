@@ -61,6 +61,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    //for audios
+    public function audios()
+    {
+        return $this->hasMany(Audio::class);
+    }
+
       
    
 }
