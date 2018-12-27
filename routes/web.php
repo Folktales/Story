@@ -60,3 +60,4 @@ Route::put('imageUpload', ['as'=>'imageUploadFile', 'uses'=>'ImageController@upl
 
 
 
+

@@ -17,7 +17,7 @@
                      <a href="{{ url('/text') }}">Text</a>
                      <hr>
 
-                     <a href="{{ url('/home') }}">Audio</a>
+                     <a href="{{ url('/audio') }}">Audio</a>
                      <hr>
 
                       <a href="{{ url('/home') }}">Video</a>

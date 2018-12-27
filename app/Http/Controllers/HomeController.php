@@ -30,6 +30,9 @@ class HomeController extends Controller
     {
         return view('text');
     }
-
+ public function audio()
+    {
+        return view('audio');
     
+}
 }

@@ -25,6 +25,7 @@ class FileController extends Controller
         'story'=>$request->get('story'),
         'author' => $request->get('author'),
         'image'=>$request->get('image')
+        
 		]);
 
 
@@ -34,10 +35,10 @@ class FileController extends Controller
    }
 
    
-   public function upload()
-	{
-   return 'x';
-	}
+ //   public function upload()
+	// {
+ //   return 'x';
+	// }
 
 	// public function multifileupload()
  //    {
