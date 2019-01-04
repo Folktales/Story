@@ -26,8 +26,30 @@
 
                 <div class="card-body">
 
+                        <table>
+                            
+                          @foreach ($users as $user)
+
+                          <!-- <img src=" {{ url('images/$user->image') }} " alt="no photos" class="folktales"> -->
+
+                          <img src="/images/{{ $user->image  }}">
+
+                          <tr><td> {{ $user->image }} </td></tr>
+
+                          <tr><td> {{ $user->title }} </td></tr>
+
+                          <tr><td> {{ $user->overview }} </td></tr>
+
+                          <tr><td> {{ $user->author }} </td></tr>
+
+
+
+                          @endforeach
+
+                        </table>
+
                 	
-                		<img src=" {{ url('images/127690564.png') }} " alt="no photos" class="folktales">
+                		<img src=" {{ url('images/logo.png') }} " alt="no photos" class="folktales">
                 		 མི་ལས་ལྷག་པའི་བྱི་ལི། 
 
                 		 <button value="View"> View </button> 
@@ -36,7 +58,7 @@
                    
                         <hr>
                    
-                		<img src=" {{ url('images/127690564.png') }} " alt="no photos" class="folktales">
+                		<img src=" {{ url('images/logo.png') }} " alt="no photos" class="folktales">
                 		  མི་ལས་ལྷག་པའི་བྱི་ལི། 
                 	     <button value="View"> View </button> 
                 		 <button value="View"> Edit </button> 
@@ -46,7 +68,7 @@
                    
 
 
-                  		<img src=" {{ url('images/127690564.png') }} " alt="no photos" class="folktales">
+                  		<img src=" {{ url('images/logo.png') }} " alt="no photos" class="folktales">
                 		 མི་ལས་ལྷག་པའི་བྱི་ལི། 
                 	
                          <button value="View"> View </button> 

@@ -17,10 +17,10 @@
                      <a href="{{ url('/view') }}">Text</a>
                      <hr>
 
-                     <a href="{{ url('/audio') }}">Audio</a>
+                     <a href="{{ url('/viewAudio') }}">Audio</a>
                      <hr>
 
-                      <a href="{{ url('/video') }}">Video</a>
+                      <a href="{{ url('/viewVideo') }}">Video</a>
                       <hr>                    
 
                 </div>

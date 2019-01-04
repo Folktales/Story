@@ -14,11 +14,11 @@ class File extends Model
       'overview',
       'author',
       'story',
-     'image'
+      'image'
     ];
 
     public function user()
-    {
+    { 
       return $this->belongsTo(User::class);
     }
 }

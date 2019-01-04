@@ -12,11 +12,20 @@ class FileController extends Controller
 	// 	}
      public function store(Request $request)
     {
-       $request->validate([
+      
+       
+       $image = $request->file('image-folktales');
+
+       $new_name = $image->getClientOriginalName();
+
+       $image->move(public_path('images'), $new_name);
+
+      $request->validate([
         'title' => 'required:max:255',
         'overview' => 'required',
         'story'=>'required',
         'author' => 'required'
+        
       ]);
 
       auth()->user()->files()->create([
@@ -24,13 +33,11 @@ class FileController extends Controller
         'overview' => $request->get('overview'),
         'story'=>$request->get('story'),
         'author' => $request->get('author'),
-        'image'=>$request->get('image')
+        'image'=>$request->get('image',$new_name)
         
-		]);
+      ]);
 
-
-
-      return back()->with('message', 'Your file is submitted Successfully');
+      return redirect()->route('home');      
     
    }
 

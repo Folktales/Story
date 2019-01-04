@@ -12,16 +12,65 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Videos for Bhutanese Folktales</div>
+                <div class="card-header">video for Bhutanese Folktales</div>
 
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
-                    @endif                                
+                    @endif   
 
-                   <form action="/store" method="post"   enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" action="{{ route('video') }}" aria-label="{{ __('Upload') }}">
+                      @csrf
+                      <div class="form-group row ">
+                        <label for="title" class="col-sm-4 col-form-label text-md-right">{{ __('Upload video') }}</label>
+                           
+                      </div>
+
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required autofocus />
+                                @if ($errors->has('title'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+
+                         <div class="form-group row">
+                            <label for="author" class="col-md-4 col-form-label text-md-right">{{ __('author') }}</label>
+                            <div class="col-md-6">
+                                <input id="author" type="text" class="form-control{{ $errors->has('author') ? ' is-invalid' : '' }}" name="author" required>
+                                @if ($errors->has('author'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('author') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="video" class="col-md-4 col-form-label text-md-right">{{ __('Video') }}</label>
+                            <div class="col-md-6">
+                               <input type="file" name="video-folktale">                               
+                            </div>                            
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Upload') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                   <!-- <form action="/video" method="post"   enctype="multipart/form-data">
                         
                         {{ csrf_field()}}
 
@@ -38,7 +87,7 @@
                        </tr>
                         
                        <tr>
-                           <td> Choose Video:</td>
+                           <td> Upload video:</td>
                            <td><input type="file" name="file"/></td>
                        </tr>
 
@@ -47,7 +96,7 @@
                    <button type="submit" class="btn"> Upload</button>
                    <input type="hidden" value="{{ Session::token() }}" name="_token">
 
-                   </form>
+                   </form> -->
 
                 </div>
             </div>

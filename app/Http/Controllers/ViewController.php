@@ -10,8 +10,8 @@ class ViewController extends Controller
 {
       public function index()
       {
-      $users = DB::select('select * from posts');
-      return view('view',['users'=>$users]);
+      $users = DB::select('select image, title,overview, author from files');
+         return view('view',['users'=>$users]);
       }
 }
 

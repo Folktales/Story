@@ -55,9 +55,6 @@ Route::get('text','HomeController@text');
 Route::get('text','HomeController@text');
 Route::get('/text1', 'HomeController@index')->name('text');
 
-Route::post('file/upload', 'FileController@store')->name('file.upload');
-Route::post('upload', 'FileController@upload')->name('upload');
-
 Route::get('imageUpload', ['as'=>'imageUpload', 'uses'=>'ImageController@index']);
 Route::put('imageUpload', ['as'=>'imageUploadFile', 'uses'=>'ImageController@uploadFiles']);
 
@@ -74,10 +71,22 @@ Route::post('/uploadfile','UploadfileController@upload');
 //to view the inserted datas from database
 Route::get('view','ViewController@index');
 
+//upload images adn files i.e text
+Route::post('file/upload', 'FileController@store')->name('file.upload');
+Route::post('upload', 'FileController@upload')->name('upload');
+
 //to post the audio in database
 Route::get('/audio','AudioController@index');
 Route::post('/audio','AudioController@store')->name('audio');
 
+//to view audio from database
+Route::get('/viewAudio', 'ViewAudioController@index');
+
+
 //to post the video in the database
 Route::get('/video','VideoController@index');
-Route::post('/video','VideoController@store');
+Route::post('/video','VideoController@store')->name('video');
+
+Route::get('/viewVideo', 'ViewVideoController@index');
+
+

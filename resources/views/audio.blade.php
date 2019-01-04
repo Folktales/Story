@@ -21,7 +21,7 @@
                         </div>
                     @endif   
 
-            <form method="POST" action="{{ route('audio') }}" aria-label="{{ __('Upload') }}">
+  <form method="POST" enctype="multipart/form-data" action="{{ route('audio') }}" aria-label="{{ __('Upload') }}">
                       @csrf
                       <div class="form-group row ">
                         <label for="title" class="col-sm-4 col-form-label text-md-right">{{ __('Upload Audio') }}</label>
@@ -56,7 +56,7 @@
                         <div class="form-group row">
                             <label for="audio" class="col-md-4 col-form-label text-md-right">{{ __('Audio') }}</label>
                             <div class="col-md-6">
-                               <input type="file" name="audio">                               
+                               <input type="file" name="audio-folktale">                               
                             </div>                            
                         </div>
 
