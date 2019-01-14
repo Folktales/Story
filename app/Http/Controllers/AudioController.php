@@ -36,7 +36,8 @@ class AudioController extends Controller
            auth()->user()->audios()->create([
                'title' => $request->get('title'),
                'author' => $request->get('author'),
-               'audio' => $request->get('audio',$new_name)             
+               'audio' => $request->get('audio',$new_name)
+             
            ]);
 
            return redirect()->route('viewAudio');

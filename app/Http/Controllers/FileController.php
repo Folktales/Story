@@ -77,7 +77,12 @@ class FileController extends Controller
 
           return redirect('/view')->with('Success','Folktales has been Updated!!');               
     }     
-
+    
+    public function show($id)
+    {
+        $User = \App\File::find($id);
+        return view('viewDetail',compact('User'));
+    }
 
     //to delete
     public function destroy($id)

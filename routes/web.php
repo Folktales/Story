@@ -70,11 +70,14 @@ Route::post('/edit/User/{id}','FileController@update');
 
 Route::delete('/delete/User/{id}','FileController@destroy');
 
-//for audio
-//Route::delete('/delete/User/{id}','AudioController@destroy');
+//for audio deletion
+Route::delete('/delete/Audio/{id}','AudioController@destroy');
 
 //for video deletion
 Route::delete('/delete/Video/{id}','VideoController@destroy');
+
+//for viewing all
+Route::get('/viewDetail/User/{id}', 'FileController@show');
 
 
 

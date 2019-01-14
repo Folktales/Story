@@ -1,8 +1,6 @@
 @extends('layouts.app')
 <style type="text/css">
-	
  
-
  .add-more
  {
  	width: 10%;
@@ -12,8 +10,8 @@
 
  .image
  {
-  width: 20%;
-  height: 25%;
+  width: 23%;
+  height: 26%;
  }
 
  #edit{
@@ -38,6 +36,11 @@
    height: 3%;
   margin-left: 90%;
  }
+
+ .form{
+     margin-top: -5.5%;
+     margin-left: 17%; 
+ }
  
 </style>
 
@@ -52,7 +55,7 @@
 
                 <div class="text-view">                  
                             
-                          @foreach ($users as $user)                          
+                     @foreach ($users as $user)                          
 
                           <img src="{{ $user->image  }}" alt="photo unavaible" class="image">
                           <br>                         
@@ -63,29 +66,29 @@
                               
                            <b>རྩོམ་པ་པོ ༔</b>&nbsp;&nbsp;{{ $user->author }} <br>
 
-                          <a href="{{action('FileController@edit',$user->id)}}" class="btn btn-primary" id="edit">Edit</a>  <br><br>
+                          <a href="{{action('FileController@show',$user->id)}}" class="btn btn-primary" id="view">View</a>  
 
-                          <form action="{{action('FileController@destroy', $user->id)}}" method="post">
+                          <a href="{{action('FileController@edit',$user->id)}}" class="btn btn-primary" >Edit </a>                    
+
+                          <form action="{{action('FileController@destroy', $user->id)}}" method="post" class="form">
                              {{csrf_field()}}
-                          <input name="_method" type="hidden" value="DELETE">
-                           
+                          <input name="_method" type="hidden" value="DELETE">         
                           <button class="btn btn-danger" type="submit">Delete</button>
                           </form> 
 
                           <hr class="border">
 
-                         @endforeach           	
+                      @endforeach           	
                  </div>
 
               <a href="{{ url('/text') }}"> <input  type="image" name="submit" src="{{ url('images/addmore.jpg') }}" class="add-more"/> </a><br>
-               <b class="add-more"> Add More </b>
+              <b class="add-more"> Add More </b>
 
               <a href="{{ url('/home') }}">
               <input  type="image" name="submit" src="{{ url('images/back.png') }}" class="back"/>  </a>
               <b class="back">Back </b>
 
-              </div>
-                              
+              </div>                              
             </div>
         </div>
     </div>
