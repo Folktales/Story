@@ -17,9 +17,7 @@ class AudioController extends Controller
 
 
     public function store(Request $request)
-    {
-       
-       
+    {       
 
        $audio = $request->file('audio-folktale');
 
@@ -30,33 +28,25 @@ class AudioController extends Controller
            $request->validate([
             
               'title' => 'required:max:25',
-              'author' => 'required'
+              'author' => 'required',
+              'audio' => 'required:audio|mimes:mp3,wma,ogg,wav'
 
            ]);
 
            auth()->user()->audios()->create([
                'title' => $request->get('title'),
                'author' => $request->get('author'),
-               'audio' => $request->get('audio',$audio)
-             
+               'audio' => $request->get('audio',$new_name)             
            ]);
 
-           return back()->with('message', 'Your file is submited Successfully');
+           return redirect()->route('viewAudio');
+    }
 
-
-
-       /*if($file = $request->file('file'))
-     {
-           $name = $file->getClientOriginalName();
-           if($file->move('audios',$name))
-           {
-            $post = new Post();
-            $post->audio = $name;
-            $post->save();
-            return redirect()->route('home');
-           }
-     }
-     return redirect()->back();*/
+    public function destroy($id)
+    {
+        $Audio = \App\Audio::find($id);
+        $Audio->delete();
+        return redirect('/viewAudio')->with('success', 'Folktales has been deleted!!');
     }
 
 }

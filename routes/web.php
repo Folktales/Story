@@ -15,31 +15,6 @@
 //Route::get('/', 'PagesController@index');
 
 
-
-/*Route::get('users',['uses' => 'UsersController@index']);
-
-Route::get('users/create', ['uses' => 'UsersController@create']);
-
-Route::post('users', ['users' => 'UsersController@store']);*/
-
-/*Route::get('users', function () {
-	$users = [
-		'0' =>[
-			'first_name' => 'Dema',
-			'last_name' => 'Dorji',
-			'location' => 'Thimphu'
-		],
-
-		'1' =>[
-			'first_name' => 'Passang',
-			'last_name' => 'Tenzin',
-			'location' => 'Greece'
-		]
-	];
-    return $users;
-});
-*/
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -69,7 +44,7 @@ Route::get('/uploadfile','UploadfileController@index');
 Route::post('/uploadfile','UploadfileController@upload');
 
 //to view the inserted datas from database
-Route::get('view','ViewController@index');
+Route::get('/view','ViewController@index')->name('view');
 
 //upload images adn files i.e text
 Route::post('file/upload', 'FileController@store')->name('file.upload');
@@ -80,13 +55,28 @@ Route::get('/audio','AudioController@index');
 Route::post('/audio','AudioController@store')->name('audio');
 
 //to view audio from database
-Route::get('/viewAudio', 'ViewAudioController@index');
+Route::get('/viewAudio', 'ViewAudioController@index')->name('viewAudio');
 
 
 //to post the video in the database
 Route::get('/video','VideoController@index');
 Route::post('/video','VideoController@store')->name('video');
 
-Route::get('/viewVideo', 'ViewVideoController@index');
+Route::get('/viewVideo', 'ViewVideoController@index')->name('viewVideo');
+
+//edit route
+Route::get('/edit/User/{id}', 'FileController@edit');
+Route::post('/edit/User/{id}','FileController@update');
+
+Route::delete('/delete/User/{id}','FileController@destroy');
+
+//for audio
+//Route::delete('/delete/User/{id}','AudioController@destroy');
+
+//for video deletion
+Route::delete('/delete/Video/{id}','VideoController@destroy');
+
+
+
 
 

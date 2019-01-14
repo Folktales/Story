@@ -17,8 +17,16 @@ class File extends Model
       'image'
     ];
 
-    public function user()
-    { 
-      return $this->belongsTo(User::class);
-    }
+    /*public function updateUser($data)
+    {
+        $User = $this->find($data['id']);
+        $User->user_id = auth()->user()->id;
+        $User->title = $data['title'];
+        $User->author = $data['author'];
+        $User->overview = $data['overview'];
+        $User->story =$data['story'];
+        
+        $User->save();
+        return 1;
+    }*/
 }

@@ -1,21 +1,45 @@
 @extends('layouts.app')
 <style type="text/css">
 	
- .folktales{
- 	border-radius: 100%;
- 	max-width: 100px;
- }
+ 
 
  .add-more
  {
  	width: 10%;
  	height: 70px;
- 	vertical-align: middle; 	
+  margin-left: 10%; 		
  }
 
+ .image
+ {
+  width: 20%;
+  height: 25%;
+ }
+
+ #edit{
+  padding-left: 4%;
+  text-align: center;
+ } 
+
+ .border
+ {
+    border-width: 2px;    
+ }
+
+ .text-view
+ {
+   font-size: 20px;
+   font-family: serif;
+ }
+
+ .back
+ {
+   width: 3%;
+   height: 3%;
+  margin-left: 90%;
+ }
  
 </style>
-
 
 @section('content')
 <div class="container">
@@ -24,68 +48,48 @@
             <div class="card">
                 <div class="card-header">FOLKTALES</div>
 
-                <div class="card-body">
+                <div class="card-body">  
 
-                        <table>
+                <div class="text-view">                  
                             
-                          @foreach ($users as $user)
+                          @foreach ($users as $user)                          
 
-                          <!-- <img src=" {{ url('images/$user->image') }} " alt="no photos" class="folktales"> -->
+                          <img src="{{ $user->image  }}" alt="photo unavaible" class="image">
+                          <br>                         
 
-                          <img src="/images/{{ $user->image  }}">
+                           <b>སྲུང་མིང་ ༔</b>&nbsp;&nbsp;{{ $user->title }} <br>
 
-                          <tr><td> {{ $user->image }} </td></tr>
+                           <b>བཅུ་དོན  ༔</b>&nbsp;&nbsp;{{ $user->overview }} <br>
+                              
+                           <b>རྩོམ་པ་པོ ༔</b>&nbsp;&nbsp;{{ $user->author }} <br>
 
-                          <tr><td> {{ $user->title }} </td></tr>
+                          <a href="{{action('FileController@edit',$user->id)}}" class="btn btn-primary" id="edit">Edit</a>  <br><br>
 
-                          <tr><td> {{ $user->overview }} </td></tr>
+                          <form action="{{action('FileController@destroy', $user->id)}}" method="post">
+                             {{csrf_field()}}
+                          <input name="_method" type="hidden" value="DELETE">
+                           
+                          <button class="btn btn-danger" type="submit">Delete</button>
+                          </form> 
 
-                          <tr><td> {{ $user->author }} </td></tr>
+                          <hr class="border">
 
+                         @endforeach           	
+                 </div>
 
+              <a href="{{ url('/text') }}"> <input  type="image" name="submit" src="{{ url('images/addmore.jpg') }}" class="add-more"/> </a><br>
+               <b class="add-more"> Add More </b>
 
-                          @endforeach
+              <a href="{{ url('/home') }}">
+              <input  type="image" name="submit" src="{{ url('images/back.png') }}" class="back"/>  </a>
+              <b class="back">Back </b>
 
-                        </table>
-
-                	
-                		<img src=" {{ url('images/logo.png') }} " alt="no photos" class="folktales">
-                		 མི་ལས་ལྷག་པའི་བྱི་ལི། 
-
-                		 <button value="View"> View </button> 
-                		 <button value="View"> Edit </button> 
-                		 <button value="View"> Delete </button>    	
-                   
-                        <hr>
-                   
-                		<img src=" {{ url('images/logo.png') }} " alt="no photos" class="folktales">
-                		  མི་ལས་ལྷག་པའི་བྱི་ལི། 
-                	     <button value="View"> View </button> 
-                		 <button value="View"> Edit </button> 
-                		 <button value="View"> Delete </button>  
-
-                		 <hr>  	
-                   
-
-
-                  		<img src=" {{ url('images/logo.png') }} " alt="no photos" class="folktales">
-                		 མི་ལས་ལྷག་པའི་བྱི་ལི། 
-                	
-                         <button value="View"> View </button> 
-                		 <button value="View"> Edit </button> 
-                		 <button value="View"> Delete </button> 
-
-                		 <hr>   
-
-                    <a href="{{ url('/text') }}"> <input  type="image" name="submit" src="{{ url('images/addmore.jpg') }}" class="add-more"/>  </a>                                                   
-
-                </div>
+              </div>
+                              
             </div>
         </div>
     </div>
-       
 </div>
 
-        @include('includes.footer')
-      
+@include('includes.footer')      
 @endsection

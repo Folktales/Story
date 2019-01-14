@@ -21,12 +21,11 @@ class VideoController extends Controller
        $video->move(public_path('videos'), $new_name);
   
 
-         
-
        $request->validate([
             
               'title' => 'required:max:25',
-              'author' => 'required'
+              'author' => 'required',
+              'video' => 'video|mimes:mp4,3gp,ogg'
 
            ]);
 
@@ -38,8 +37,13 @@ class VideoController extends Controller
              
            ]);
 
-           return back()->with('message', 'Your file is submited Successfully');
+           return redirect()->route('viewVideo');            
+    }
 
-            
+    public function destroy($id)
+    {
+        $Video = \App\Video::find($id);
+        $Video->delete();
+        return redirect('/viewVideo')->with('success', 'Folktales has been deleted!!');
     }
 }

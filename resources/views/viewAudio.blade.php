@@ -4,7 +4,25 @@
  {
   width: 10%;
   height: 70px;
-  vertical-align: middle;   
+  margin-left: 10%;   
+ }
+
+ #delete
+ {
+   margin-left: 40%; 
+ }
+
+ .audio-view
+ {
+   font-size: 20px;
+   font-family: serif;
+ }
+
+ .back
+ {
+   width: 3%;
+   height: 3%;
+  margin-left: 90%;
  }
  
 </style>
@@ -22,40 +40,40 @@
                         </div>
                     @endif  
 
-                    <div>
+                    <div class="audio-view">
                       
-                       @foreach ($users as $user)                          
+                       @foreach ($users as $user)  
 
-                          {{ $user->title }}  <br>                       
-
-                          {{ $user->author }}  <br>
-
-                          <audio src="/audios/{{ $user->audio  }}" controls>
+                          <audio src="\audios\{{ $user->audio  }}" controls>
                             
-                          </audio> 
+                          </audio>  <br>                      
 
-                          <!-- <audio width="400" controls src="/audios/{{ $user->audio }}" type="audio/mp3/ogg">
-                          Your browser does not support HTML5 video.
-                          </audio>  --> 
+                        <b>སྲུང་མིང་ ༔</b>&nbsp;&nbsp;{{ $user->title }}  <br>                       
 
+                        <b>རྩོམ་པ་པོ ༔</b>&nbsp;&nbsp; {{ $user->author }}  <br>                         
 
+                          <form action="{{action('VideoController@destroy', $user->id)}}" method="post">
+                             {{csrf_field()}}
+                          <input name="_method" type="hidden" value="DELETE">
+                           
+                          <button class="btn btn-danger" type="submit" id="delete">Delete</button>
+                          </form>                          
 
-                          <!-- <audio controls>
-                            <source src="/audios/<?php echo $user->audio; ?>" type="audio/mp3">
-                          </audio> -->
-                          
-                          <br>
+                           <hr>
 
-                          
-
-                          @endforeach
+                           @endforeach
 
                     </div> 
-                    <hr>   
+                      
 
                     <a href="{{ url('/audio') }}">
-                    <input  type="image" name="submit" src="{{ url('images/addmore.jpg') }}" class="add-more"/>  </a>                      
+                    <input  type="image" name="submit" src="{{ url('images/addmore.jpg') }}" class="add-more"/>  </a> 
+                    <br>
+                    <b class="add-more"> Add More </b>  
+                    <a href="{{ url('/home') }}">
+                    <input  type="image" name="submit" src="{{ url('images/back.png') }}" class="back"/>  </a><b class="back">Back </b>                      
                 </div>
+                
             </div>
         </div>
     </div>       

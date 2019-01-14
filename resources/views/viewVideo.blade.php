@@ -4,8 +4,22 @@
  {
   width: 10%;
   height: 70px;
-  vertical-align: middle;   
+  margin-left: 10%;   
  } 
+
+ .video-view
+ {
+  font-size: 20px;
+   font-family: serif;
+ }
+
+ .back
+ {
+   width: 3%;
+   height: 3%;
+  margin-left: 90%;
+ }
+ 
 </style>
 
 @section('content')
@@ -13,7 +27,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Audios of Bhutanese Folktales</div>
+                <div class="card-header">Videos of Bhutanese Folktales</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -22,29 +36,37 @@
                         </div>
                     @endif  
 
-                    <div>
+                    <div class="video-view">
                       
-                       @foreach ($users as $user)                          
+                       @foreach ($users as $user)               
+                          
+                        <video width="700" height="300" controls>
+                           
+                          <source src= "\videos\{{ $user->video }}" type="video/mp4">
 
-                          {{ $user->title }}  <br>                       
+                              Your browser does not support HTML5 video.
+                          </video><br>
 
-                          {{ $user->author }}  <br>
+                          <b>སྲུང་མིང་ ༔</b>&nbsp;&nbsp;{{ $user->title }}  <br>                       
 
-                          <video width="400" controls>
-                          <!-- <source src=" {{ url('videos/Acho Tsagay.MP4') }}" type="video/mp4"> -->
+                          <b>རྩོམ་པ་པོ ༔</b>&nbsp;&nbsp;{{ $user->author }} 
 
-                            <source src= " /videos/{{ $user->video }} }}" type="video/mp4">
-
-
-
-                          Your browser does not support HTML5 video.
-                          </video>
-
+                           <form action="{{action('VideoController@destroy', $user->id)}}" method="post">
+                             {{csrf_field()}}
+                          <input name="_method" type="hidden" value="DELETE">
+                           
+                          <button class="btn btn-danger" type="submit" id="delete">Delete</button>
+                          </form>                                   
+                          <hr> 
                         @endforeach
 
-
                     </div>
-                    <a href="{{ url('/video') }}"> <input  type="image" name="submit" src="{{ url('images/addmore.jpg') }}" class="add-more"/> </a>                               
+                        
+                  <a href="{{ url('/video') }}"> <input  type="image" name="submit" src="{{ url('images/addmore.jpg') }}" class="add-more"/> </a><br>
+                  <b class="add-more"> Add More </b>
+
+                  <a href="{{ url('/home') }}">
+                    <input  type="image" name="submit" src="{{ url('images/back.png') }}" class="back"/>  </a><b class="back">Back </b>                                  
                   </div>
             </div>
         </div>
